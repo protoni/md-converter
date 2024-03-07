@@ -1,0 +1,140 @@
+
+body {
+    background-color: #1E1E1E;
+    font-size: 1.1vw;
+    color: #83858B;
+    font-family:monospace;
+}
+
+#title-block-header {
+    display: none;
+}
+
+figure {
+    text-align: center;
+}
+
+p {
+    width: 50%;
+    margin: auto;
+    padding-bottom: 20px;
+}
+
+/* Align all headers center */
+h1 {
+    width: 50%;
+    margin: auto;
+    padding-top: 80px;
+    padding-bottom: 40px;
+}
+
+h2 {
+    width: 50%;
+    margin: auto;
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+
+h3 {
+    width: 50%;
+    margin: auto;
+    padding-top: 30px;
+    padding-bottom: 20px;
+}
+
+h4 {
+    width: 50%;
+    margin: auto;
+    padding-top: 30px;
+    padding-bottom: 20px;
+}
+
+h5 {
+    width: 50%;
+    margin: auto;
+    padding-top: 30px;
+    padding-bottom: 20px;
+}
+
+ul {
+    list-style-type: none;
+    color: white;
+    font-size: 1.1vw;
+    list-style-type: "> ";
+    font-family:monospace;
+}
+
+.sourceCode {
+    background-color: #161616;
+    color: #83858B;
+    width: 50%;
+    margin: auto;
+    font-family:monospace;
+}
+
+/* Align all code blocks to center */
+div[id^='cb'] {
+    width: 50%;
+    margin: auto;
+    border: 1px solid rgba(204, 204, 204, 0.5);
+}
+
+/* Remove the purple color on clicked links */
+a:visited {
+    color: inherit; /* Set the color to inherit from the parent */
+    text-decoration: none; /* Remove underline on visited links */
+}
+
+a {
+    text-decoration: none;
+}
+
+/* Change link colors */
+a.uri {
+    color: #5488E8;
+}
+
+img {
+
+    height: 50%;
+    object-fit: cover;
+    width: 50%;
+    margin: auto;
+}
+
+
+nav {
+    text-align: left;
+}
+
+#TOC {
+        height: 100%;
+
+        width: 15%;
+        position: fixed;
+        top: 0;
+        left: 0;
+        padding-top: 40px;
+        background-color: #1E1E1E;
+        overflow-y: auto;
+        overflow-x: auto;
+      }
+
+a {
+    overflow-y: auto;
+        overflow-x: auto;
+        text-align: left;
+}
+
+nav + ul {
+    text-align: left;
+}
+
+li:hover {
+    color: #5488E8;
+}
+
+dl {
+    width: 50%;
+    margin: auto;
+}
