@@ -20,6 +20,18 @@ p {
     padding-bottom: 20px;
 }
 
+pre {
+    width: 50%;
+    margin: auto;
+    padding-bottom: 20px;
+}
+
+strong {
+    width: 50%;
+    margin: auto;
+    padding-bottom: 20px;
+}
+
 /* Align all headers center */
 h1 {
     width: 50%;
@@ -65,6 +77,14 @@ ul {
 }
 
 .sourceCode {
+    background-color: #161616;
+    color: #83858B;
+    width: 50%;
+    margin: auto;
+    font-family:monospace;
+}
+
+code {
     background-color: #161616;
     color: #83858B;
     width: 50%;

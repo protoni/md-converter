@@ -13,6 +13,7 @@ called **"Click boards"** and started messing around with them.
 A lot of configuring and figuring out was required so here are some notes on that.
 
 **Click boards**
+
 ![Click boards](https://i.imgur.com/3NG6pB4.jpg)
 
 
@@ -30,6 +31,7 @@ It just works out of the box. Just needed to plug it in, figure out the IP addre
 
 
 **Ethernet adapter**
+
 ![adapter](https://i.imgur.com/2XBHhBp.jpg)
 
 
@@ -38,6 +40,7 @@ It just works out of the box. Just needed to plug it in, figure out the IP addre
 
 The RJ45 adapter is also great because the beaglebone Linux has a package management system so I can just install whatever
 I need using apt-get now that I have internet connection working.
+
 ![Ping](https://i.imgur.com/yrx6dIp.png)
 
 
@@ -46,12 +49,13 @@ I need using apt-get now that I have internet connection working.
 
 There is no ifconfig on beaglebone linux, apparently it only has a **ip a** command.
 ( IP highlighted in yellow )
+
 ![Ip a command](https://i.imgur.com/OqPkOwN.png)
 
 
 
 **SSH in to the device**
-```
+```bash
 
 # Open Putty
 
@@ -78,7 +82,7 @@ IP settings on the host machine. But here are some notes on that as well.
 
 
 **Configure the IP and connect**
-```
+```bash
 - Connect the cable to the host machine
 - Win + R -> ncpa.cpl
 - Right click the TP Link adapter -> Properties -> Internet Protocol Version 4 (TCP/IPv4)
@@ -115,6 +119,7 @@ Click board's USB client port.
 
 
 **USB connected to modem**
+
 ![USB connected to modem](https://i.imgur.com/BSyXS8C.jpg)
 
 
@@ -129,29 +134,30 @@ The first port on Linux board that I tested was **/dev/ttyACM0**. The **minicom*
 connection seemed to open and all of the AT commands seemed to work except **AT^SWWAN** that is supposed to open the internet connection.
 
 **Minicom modem connection works**
+
 ![ATI response](https://i.imgur.com/rEGlMls.png)
 
 
 
 By default, it just gave an error called **"Error"**, but after digging around I was able to set an
 extended error mode on, which can be set on with this command:
-```
+```bash
 AT+CMEE=2
 ```
 
 Errors can be queried with this:
-```
+```bash
 AT+CEER
 ```
 
 
 
 After setting the extended settings mode I was getting 2 types of errors:
-```
+```bash
 CME ERROR: 100
 ```
 And the other one was:
-```
+```bash
 +CME ERROR: operation not allowed
 ```
 
@@ -162,7 +168,7 @@ Never solved those issues, I just happened to test the **/dev/ttyACM1** after ba
 **Setup mobile interface**
 
 The **internet** parameter is the **APN** of the operator.
-```
+```bash
 1. Connect USB host -> Click board USB client with a USB cable
 2. sudo minicom -o -D /dev/ttyACM1 -b 115200
 3. AT+CGDCONT=1,"IP","internet"
@@ -175,11 +181,13 @@ The **internet** parameter is the **APN** of the operator.
 
 
 **The mobile connection works**
+
 ![Ping mobile](https://i.imgur.com/R8ZbdAR.png)
 
 
 
 **Mobile interface**
+
 ![Mobile interface](https://i.imgur.com/HllarlL.png)
 
 
@@ -189,13 +197,11 @@ I found only 2 other people on some forums who seemed to have a similar error. L
 were from years ago and no responses after that.. frustrating. I guess they gave up too.
 
 These were some of the errors I got:
-```
+```bash
 PDP context deactivation
-```
-```
+
 Last PDN disconnection not allowed
-```
-```
+
 Unknown error
 ```
 
@@ -207,7 +213,7 @@ get it to work with the **/dev/ttyACM1** way explained earlier.
 
 
 **Some minicom notes**
-```
+```bash
 ### Minicom ###
 # Minicom enable carriage return new lines
 Ctrl + A -> U
@@ -238,7 +244,7 @@ and that was an whole nother journey. I'll probably do a separate post for the d
 After getting the I2C1 bus working, it was possible to get access to the temperature sensor.
 
 **List i2c buses**
-```
+```bash
 debian@arm:~$ /usr/sbin/i2cdetect -l
 i2c-1   i2c             OMAP I2C adapter                        I2C adapter
 i2c-2   i2c             OMAP I2C adapter                        I2C adapter
@@ -252,6 +258,7 @@ i2c-0   i2c             OMAP I2C adapter                        I2C adapter
 
 Here we can see that the temperature sensor **0x3f** is detected. **"--"** means that
 no devices were found. **"UU"** can also be found sometimes, it means that it is an reserved address.
+
 ![Prove i2c bus](https://i.imgur.com/FOIwgRM.png)
 
 
@@ -315,6 +322,7 @@ while True:
 
 
 **Running the script**
+
 ![Tempearture values](https://i.imgur.com/vSIaYn9.png)
 
 ---
@@ -362,7 +370,7 @@ sudo chown root:dialout /dev/ttyS0
 
 
 **I keep getting these errors still**
-```
+```bash
 Oct 22 14:36:12 arm gpsd[1329]: gpsd:ERROR: SER: device open of /dev/ttyS0 failed: Permission denied - retrying read-only
 Oct 22 14:36:12 arm gpsd[1329]: gpsd:ERROR: SER: read-only device open of /dev/ttyS0 failed: Permission denied
 Oct 22 14:36:12 arm gpsd[1329]: gpsd:ERROR: /dev/ttyS0: device activation failed.
@@ -398,6 +406,7 @@ sudo cgps -s
 **gpsmon**
 
 I don't have a GPS antenna, so gps can't see any satellites ( Quality and Sats field )
+
 ![gpsmon output](https://i.imgur.com/6VwiqnP.png)
 
 ---
@@ -414,6 +423,7 @@ It has an **ESP-12E** module containing a **ESP8266** chip which includes a
 
 
 **Connected via UART pins**
+
 ![ESP8266 connected](https://i.imgur.com/HkzqyG3.jpg)
 
 
@@ -470,6 +480,7 @@ CMD>reset
 
 
 **The "slip" interface on Linux**
+
 ![slip interface](https://i.imgur.com/zbHfFWy.png)
 
 
@@ -477,12 +488,13 @@ CMD>reset
 **Testing SSH with termux on Android, it works !**
 
 I enabled wifi on my phone, the ESP8266 access point showed up and I was able to connect to it.
+
 ![Termux wifi test](https://i.imgur.com/lIcAgQr.png)
 
 
 
 **I also tried to flash the firmware on the target Linux board**
-```
+```bash
 termios.error: (25, 'Inappropriate ioctl for device')
 ```
 
@@ -497,7 +509,7 @@ sudo esptool.py --port /dev/ttyS0 write_flash -fs 4MB 0x00000 firmware/0x00000.b
 
 It failed. And I'm not sure if it's just an coincidence or did it break something,
 but now when I try to for example update the board with **apt-get**, it gives me this error 😳
-```
+```bash
 Reading package lists... Error!
 E: lzma_read: Read error (10)
 W: You may want to run apt-get update to correct these problems
@@ -537,7 +549,7 @@ I was able to build this driver for the chip:
 
 The driver is able to at least read some I2C registers before failing to 
 this configuration loading check with this error:
-```
+```bash
 Error -9 : Configuration loading error
 ```
 

@@ -121,8 +121,11 @@ class="uri">https://www.mikroe.com/</a> ) called <strong>“Click
 boards”</strong> and started messing around with them.</p>
 <p>A lot of configuring and figuring out was required so here are some
 notes on that.</p>
-<p><strong>Click boards</strong> <img
-src="https://i.imgur.com/3NG6pB4.jpg" alt="Click boards" /></p>
+<p><strong>Click boards</strong></p>
+<figure>
+<img src="https://i.imgur.com/3NG6pB4.jpg" alt="Click boards" />
+<figcaption aria-hidden="true">Click boards</figcaption>
+</figure>
 <hr />
 <h3 id="ethernet">Ethernet</h3>
 <p>Not a Click board, but the first issue I had was that I couldn’t
@@ -132,27 +135,36 @@ didn’t work all that well over UART.</p>
 COM port using Putty so I bought this ~9€ USB -&gt; Ethernet adapter to
 solve this issue. It just works out of the box. Just needed to plug it
 in, figure out the IP address of the Linux board and SSH in to it.</p>
-<p><strong>Ethernet adapter</strong> <img
-src="https://i.imgur.com/2XBHhBp.jpg" alt="adapter" /></p>
+<p><strong>Ethernet adapter</strong></p>
+<figure>
+<img src="https://i.imgur.com/2XBHhBp.jpg" alt="adapter" />
+<figcaption aria-hidden="true">adapter</figcaption>
+</figure>
 <p><strong>Internet connection works</strong></p>
 <p>The RJ45 adapter is also great because the beaglebone Linux has a
 package management system so I can just install whatever I need using
-apt-get now that I have internet connection working. <img
-src="https://i.imgur.com/yrx6dIp.png" alt="Ping" /></p>
+apt-get now that I have internet connection working.</p>
+<figure>
+<img src="https://i.imgur.com/yrx6dIp.png" alt="Ping" />
+<figcaption aria-hidden="true">Ping</figcaption>
+</figure>
 <p><strong>Getting the IP</strong></p>
 <p>There is no ifconfig on beaglebone linux, apparently it only has a
-<strong>ip a</strong> command. ( IP highlighted in yellow ) <img
-src="https://i.imgur.com/OqPkOwN.png" alt="Ip a command" /></p>
+<strong>ip a</strong> command. ( IP highlighted in yellow )</p>
+<figure>
+<img src="https://i.imgur.com/OqPkOwN.png" alt="Ip a command" />
+<figcaption aria-hidden="true">Ip a command</figcaption>
+</figure>
 <p><strong>SSH in to the device</strong></p>
-<pre><code>
-# Open Putty
-
-Host name:
-debian@192.168.1.60
-
-Port: 
-22
-</code></pre>
+<div class="sourceCode" id="cb1"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Open Putty</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="ex">Host</span> name:</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="ex">debian@192.168.1.60</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="ex">Port:</span> </span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="ex">22</span></span></code></pre></div>
 <p><strong>Connecting ethernet cable straight to host</strong></p>
 <p>I have a router where my computer and the Linux board is connected so
 I didn’t have to set any IP settings on the host machine. But here are
@@ -163,13 +175,14 @@ some notes on that as well.</p>
 <figcaption aria-hidden="true">Ip a usb</figcaption>
 </figure>
 <p><strong>Configure the IP and connect</strong></p>
-<pre><code>- Connect the cable to the host machine
-- Win + R -&gt; ncpa.cpl
-- Right click the TP Link adapter -&gt; Properties -&gt; Internet Protocol Version 4 (TCP/IPv4)
--&gt; Properties -&gt; General -&gt; Use the following IP address:
--- IP address:      192.168.6.5
--- Subnet mask:     255.255.255.0
--- Default gateway: 192.168.6.0</code></pre>
+<div class="sourceCode" id="cb2"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">-</span> Connect the cable to the host machine</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="ex">-</span> Win + R <span class="at">-</span><span class="op">&gt;</span> ncpa.cpl</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="ex">-</span> Right click the TP Link adapter <span class="at">-</span><span class="op">&gt;</span> Properties <span class="at">-</span><span class="op">&gt;</span> Internet Protocol Version 4 <span class="er">(</span><span class="ex">TCP/IPv4</span><span class="kw">)</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="ex">-</span><span class="op">&gt;</span> Properties <span class="at">-</span><span class="op">&gt;</span> General <span class="at">-</span><span class="op">&gt;</span> Use the following IP address:</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="ex">--</span> IP address:      192.168.6.5</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="ex">--</span> Subnet mask:     255.255.255.0</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="ex">--</span> Default gateway: 192.168.6.0</span></code></pre></div>
 <p>Not sure why, but I had to reboot the Linux board first to make the
 settings work. I also had to ping from the Linux device to my host
 machine first to make the ping work the other way too. Not sure if this
@@ -189,9 +202,12 @@ pins that are in the Click board headers. It probably requires some
 drivers to actually work.</p>
 <p>Instead I connected a micro USB cable from the Linux board’s USB host
 port to the Click board’s USB client port.</p>
-<p><strong>USB connected to modem</strong> <img
-src="https://i.imgur.com/BSyXS8C.jpg"
-alt="USB connected to modem" /></p>
+<p><strong>USB connected to modem</strong></p>
+<figure>
+<img src="https://i.imgur.com/BSyXS8C.jpg"
+alt="USB connected to modem" />
+<figcaption aria-hidden="true">USB connected to modem</figcaption>
+</figure>
 <p><strong>Setting up the mobile interface</strong></p>
 <p>I spent quite a while hopelessly searching the net to solve the
 issues that I had with the modem internet connection setup. The modem
@@ -203,60 +219,78 @@ away. I tested the modem by calling from it to my own cell phone.</p>
 seemed to open and all of the AT commands seemed to work except
 <strong>AT^SWWAN</strong> that is supposed to open the internet
 connection.</p>
-<p><strong>Minicom modem connection works</strong> <img
-src="https://i.imgur.com/rEGlMls.png" alt="ATI response" /></p>
+<p><strong>Minicom modem connection works</strong></p>
+<figure>
+<img src="https://i.imgur.com/rEGlMls.png" alt="ATI response" />
+<figcaption aria-hidden="true">ATI response</figcaption>
+</figure>
 <p>By default, it just gave an error called <strong>“Error”</strong>,
 but after digging around I was able to set an extended error mode on,
 which can be set on with this command:</p>
-<pre><code>AT+CMEE=2</code></pre>
+<div class="sourceCode" id="cb3"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ex">AT+CMEE=2</span></span></code></pre></div>
 <p>Errors can be queried with this:</p>
-<pre><code>AT+CEER</code></pre>
+<div class="sourceCode" id="cb4"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="ex">AT+CEER</span></span></code></pre></div>
 <p>After setting the extended settings mode I was getting 2 types of
 errors:</p>
-<pre><code>CME ERROR: 100</code></pre>
+<div class="sourceCode" id="cb5"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="ex">CME</span> ERROR: 100</span></code></pre></div>
 <p>And the other one was:</p>
-<pre><code>+CME ERROR: operation not allowed</code></pre>
+<div class="sourceCode" id="cb6"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="ex">+CME</span> ERROR: operation not allowed</span></code></pre></div>
 <p>Never solved those issues, I just happened to test the
 <strong>/dev/ttyACM1</strong> after battling with this for a while and
 it worked!</p>
 <p><strong>Setup mobile interface</strong></p>
 <p>The <strong>internet</strong> parameter is the <strong>APN</strong>
 of the operator.</p>
-<pre><code>1. Connect USB host -&gt; Click board USB client with a USB cable
-2. sudo minicom -o -D /dev/ttyACM1 -b 115200
-3. AT+CGDCONT=1,&quot;IP&quot;,&quot;internet&quot;
-4. AT^SWWAN=1,1
-5. Exit with Ctrl + A -&gt; X -&gt; Yes
-6. sudo ping google.com
-7. ip a</code></pre>
-<p><strong>The mobile connection works</strong> <img
-src="https://i.imgur.com/R8ZbdAR.png" alt="Ping mobile" /></p>
-<p><strong>Mobile interface</strong> <img
-src="https://i.imgur.com/HllarlL.png" alt="Mobile interface" /></p>
+<div class="sourceCode" id="cb7"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="ex">1.</span> Connect USB host <span class="at">-</span><span class="op">&gt;</span> Click board USB client with a USB cable</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="ex">2.</span> sudo minicom <span class="at">-o</span> <span class="at">-D</span> /dev/ttyACM1 <span class="at">-b</span> 115200</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="ex">3.</span> AT+CGDCONT=1,<span class="st">&quot;IP&quot;</span>,<span class="st">&quot;internet&quot;</span></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="ex">4.</span> AT^SWWAN=1,1</span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="ex">5.</span> Exit with Ctrl + A <span class="at">-</span><span class="op">&gt;</span> X <span class="at">-</span><span class="op">&gt;</span> Yes</span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a><span class="ex">6.</span> sudo ping google.com</span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a><span class="ex">7.</span> ip a</span></code></pre></div>
+<p><strong>The mobile connection works</strong></p>
+<figure>
+<img src="https://i.imgur.com/R8ZbdAR.png" alt="Ping mobile" />
+<figcaption aria-hidden="true">Ping mobile</figcaption>
+</figure>
+<p><strong>Mobile interface</strong></p>
+<figure>
+<img src="https://i.imgur.com/HllarlL.png" alt="Mobile interface" />
+<figcaption aria-hidden="true">Mobile interface</figcaption>
+</figure>
 <p>Before I decided to test the USB, I spent hours on trying to make the
 UART route work. I found only 2 other people on some forums who seemed
 to have a similar error. Last posts to those threads were from years ago
 and no responses after that.. frustrating. I guess they gave up too.</p>
 <p>These were some of the errors I got:</p>
-<pre><code>PDP context deactivation</code></pre>
-<pre><code>Last PDN disconnection not allowed</code></pre>
-<pre><code>Unknown error</code></pre>
+<div class="sourceCode" id="cb8"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="ex">PDP</span> context deactivation</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="ex">Last</span> PDN disconnection not allowed</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a><span class="ex">Unknown</span> error</span></code></pre></div>
 <p>After I had spent the whole night trying to solve these errors I
 happened to get it to work with the <strong>/dev/ttyACM1</strong> way
 explained earlier.</p>
 <p><strong>Some minicom notes</strong></p>
-<pre><code>### Minicom ###
-# Minicom enable carriage return new lines
-Ctrl + A -&gt; U
-
-# Minicom quit
-Ctrl + A -&gt; X -&gt; Yes
-
-# Minicom enable echo
-Ctrl + E
-
-# Minicom clear screen
-Ctrl + A -&gt; C</code></pre>
+<div class="sourceCode" id="cb9"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co">### Minicom </span><span class="al">###</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Minicom enable carriage return new lines</span></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="ex">Ctrl</span> + A <span class="at">-</span><span class="op">&gt;</span> U</span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Minicom quit</span></span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a><span class="ex">Ctrl</span> + A <span class="at">-</span><span class="op">&gt;</span> X <span class="at">-</span><span class="op">&gt;</span> Yes</span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Minicom enable echo</span></span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a><span class="ex">Ctrl</span> + E</span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Minicom clear screen</span></span>
+<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a><span class="ex">Ctrl</span> + A <span class="at">-</span><span class="op">&gt;</span> C</span></code></pre></div>
 <hr />
 <h3 id="temperature">Temperature</h3>
 <p>The temperature Click board that I got is this one: *
@@ -271,73 +305,79 @@ tree tuning.</p>
 <p>After getting the I2C1 bus working, it was possible to get access to
 the temperature sensor.</p>
 <p><strong>List i2c buses</strong></p>
-<pre><code>debian@arm:~$ /usr/sbin/i2cdetect -l
-i2c-1   i2c             OMAP I2C adapter                        I2C adapter
-i2c-2   i2c             OMAP I2C adapter                        I2C adapter
-i2c-0   i2c             OMAP I2C adapter                        I2C adapter
-</code></pre>
+<div class="sourceCode" id="cb10"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="ex">debian@arm:~$</span> /usr/sbin/i2cdetect <span class="at">-l</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="ex">i2c-1</span>   i2c             OMAP I2C adapter                        I2C adapter</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="ex">i2c-2</span>   i2c             OMAP I2C adapter                        I2C adapter</span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a><span class="ex">i2c-0</span>   i2c             OMAP I2C adapter                        I2C adapter</span></code></pre></div>
 <p><strong>Probe i2c1 bus</strong></p>
 <p>Here we can see that the temperature sensor <strong>0x3f</strong> is
 detected. <strong>“–”</strong> means that no devices were found.
 <strong>“UU”</strong> can also be found sometimes, it means that it is
-an reserved address. <img src="https://i.imgur.com/FOIwgRM.png"
-alt="Prove i2c bus" /></p>
+an reserved address.</p>
+<figure>
+<img src="https://i.imgur.com/FOIwgRM.png" alt="Prove i2c bus" />
+<figcaption aria-hidden="true">Prove i2c bus</figcaption>
+</figure>
 <p><strong>Reading temperature values</strong></p>
 <p>I found a python program for some other I2C temperature sensor
 online, so I modified it to be able to read the temperature from the
 <strong>STTS22H</strong> as well.</p>
-<div class="sourceCode" id="cb13"><pre
-class="sourceCode python"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> time</span>
-<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> smbus</span>
-<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a><span class="co"># I2C channel</span></span>
-<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>i2c_ch <span class="op">=</span> <span class="dv">1</span></span>
-<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a><span class="co"># STTS22H address on the I2C bus</span></span>
-<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a>i2c_address <span class="op">=</span> <span class="bn">0x3f</span></span>
-<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Register addresses</span></span>
-<span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a>reg_temp_l <span class="op">=</span> <span class="bn">0x06</span> <span class="co"># Low temperature bytes</span></span>
-<span id="cb13-12"><a href="#cb13-12" aria-hidden="true" tabindex="-1"></a>reg_temp_h <span class="op">=</span> <span class="bn">0x07</span> <span class="co"># High temperature bytes</span></span>
-<span id="cb13-13"><a href="#cb13-13" aria-hidden="true" tabindex="-1"></a>reg_config <span class="op">=</span> <span class="bn">0x04</span> <span class="co"># Control settings register</span></span>
-<span id="cb13-14"><a href="#cb13-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-15"><a href="#cb13-15" aria-hidden="true" tabindex="-1"></a><span class="co"># Control register settings</span></span>
-<span id="cb13-16"><a href="#cb13-16" aria-hidden="true" tabindex="-1"></a>ctrl_reg <span class="op">=</span> <span class="bn">0xAA</span></span>
-<span id="cb13-17"><a href="#cb13-17" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-18"><a href="#cb13-18" aria-hidden="true" tabindex="-1"></a><span class="co"># Read temperature registers and calculate Celsius</span></span>
-<span id="cb13-19"><a href="#cb13-19" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> read_temp():</span>
-<span id="cb13-20"><a href="#cb13-20" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-21"><a href="#cb13-21" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Read temperature registers</span></span>
-<span id="cb13-22"><a href="#cb13-22" aria-hidden="true" tabindex="-1"></a>    val_l <span class="op">=</span> bus.read_i2c_block_data(i2c_address, reg_temp_l, <span class="dv">1</span>)</span>
-<span id="cb13-23"><a href="#cb13-23" aria-hidden="true" tabindex="-1"></a>    val_h <span class="op">=</span> bus.read_i2c_block_data(i2c_address, reg_temp_h, <span class="dv">1</span>)</span>
-<span id="cb13-24"><a href="#cb13-24" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb13-25"><a href="#cb13-25" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Combine high and low registers</span></span>
-<span id="cb13-26"><a href="#cb13-26" aria-hidden="true" tabindex="-1"></a>    temperature <span class="op">=</span> (val_h[<span class="dv">0</span>] <span class="op">&lt;&lt;</span> <span class="dv">8</span>) <span class="op">|</span> val_l[<span class="dv">0</span>]</span>
-<span id="cb13-27"><a href="#cb13-27" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-28"><a href="#cb13-28" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Convert to celcius</span></span>
-<span id="cb13-29"><a href="#cb13-29" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> temperature <span class="op">/</span> <span class="fl">100.0</span></span>
-<span id="cb13-30"><a href="#cb13-30" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-31"><a href="#cb13-31" aria-hidden="true" tabindex="-1"></a><span class="co"># Initialize I2C</span></span>
-<span id="cb13-32"><a href="#cb13-32" aria-hidden="true" tabindex="-1"></a>bus <span class="op">=</span> smbus.SMBus(i2c_ch)</span>
-<span id="cb13-33"><a href="#cb13-33" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-34"><a href="#cb13-34" aria-hidden="true" tabindex="-1"></a><span class="co"># Print old control register value</span></span>
-<span id="cb13-35"><a href="#cb13-35" aria-hidden="true" tabindex="-1"></a>val <span class="op">=</span> bus.read_i2c_block_data(i2c_address, reg_config, <span class="dv">1</span>)</span>
-<span id="cb13-36"><a href="#cb13-36" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">&quot;Old control register value:&quot;</span>, val)</span>
-<span id="cb13-37"><a href="#cb13-37" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-38"><a href="#cb13-38" aria-hidden="true" tabindex="-1"></a><span class="co"># Set configs</span></span>
-<span id="cb13-39"><a href="#cb13-39" aria-hidden="true" tabindex="-1"></a>val[<span class="dv">0</span>] <span class="op">=</span> ctrl_reg</span>
-<span id="cb13-40"><a href="#cb13-40" aria-hidden="true" tabindex="-1"></a>bus.write_i2c_block_data(i2c_address, reg_config, val)</span>
-<span id="cb13-41"><a href="#cb13-41" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-42"><a href="#cb13-42" aria-hidden="true" tabindex="-1"></a><span class="co"># Print new control register value</span></span>
-<span id="cb13-43"><a href="#cb13-43" aria-hidden="true" tabindex="-1"></a>val <span class="op">=</span> bus.read_i2c_block_data(i2c_address, reg_config, <span class="dv">1</span>)</span>
-<span id="cb13-44"><a href="#cb13-44" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">&quot;New control register value:&quot;</span>, val)</span>
-<span id="cb13-45"><a href="#cb13-45" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-46"><a href="#cb13-46" aria-hidden="true" tabindex="-1"></a><span class="co"># Print temperature value in a loop</span></span>
-<span id="cb13-47"><a href="#cb13-47" aria-hidden="true" tabindex="-1"></a><span class="cf">while</span> <span class="va">True</span>:</span>
-<span id="cb13-48"><a href="#cb13-48" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">&quot;Current temperature: &quot;</span> <span class="op">+</span> <span class="bu">str</span>(read_temp()), <span class="st">&quot;C&quot;</span>)</span>
-<span id="cb13-49"><a href="#cb13-49" aria-hidden="true" tabindex="-1"></a>    time.sleep(<span class="dv">1</span>)</span></code></pre></div>
-<p><strong>Running the script</strong> <img
-src="https://i.imgur.com/vSIaYn9.png" alt="Tempearture values" /></p>
+<div class="sourceCode" id="cb11"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> time</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> smbus</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a><span class="co"># I2C channel</span></span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>i2c_ch <span class="op">=</span> <span class="dv">1</span></span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a><span class="co"># STTS22H address on the I2C bus</span></span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a>i2c_address <span class="op">=</span> <span class="bn">0x3f</span></span>
+<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Register addresses</span></span>
+<span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a>reg_temp_l <span class="op">=</span> <span class="bn">0x06</span> <span class="co"># Low temperature bytes</span></span>
+<span id="cb11-12"><a href="#cb11-12" aria-hidden="true" tabindex="-1"></a>reg_temp_h <span class="op">=</span> <span class="bn">0x07</span> <span class="co"># High temperature bytes</span></span>
+<span id="cb11-13"><a href="#cb11-13" aria-hidden="true" tabindex="-1"></a>reg_config <span class="op">=</span> <span class="bn">0x04</span> <span class="co"># Control settings register</span></span>
+<span id="cb11-14"><a href="#cb11-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-15"><a href="#cb11-15" aria-hidden="true" tabindex="-1"></a><span class="co"># Control register settings</span></span>
+<span id="cb11-16"><a href="#cb11-16" aria-hidden="true" tabindex="-1"></a>ctrl_reg <span class="op">=</span> <span class="bn">0xAA</span></span>
+<span id="cb11-17"><a href="#cb11-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-18"><a href="#cb11-18" aria-hidden="true" tabindex="-1"></a><span class="co"># Read temperature registers and calculate Celsius</span></span>
+<span id="cb11-19"><a href="#cb11-19" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> read_temp():</span>
+<span id="cb11-20"><a href="#cb11-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-21"><a href="#cb11-21" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Read temperature registers</span></span>
+<span id="cb11-22"><a href="#cb11-22" aria-hidden="true" tabindex="-1"></a>    val_l <span class="op">=</span> bus.read_i2c_block_data(i2c_address, reg_temp_l, <span class="dv">1</span>)</span>
+<span id="cb11-23"><a href="#cb11-23" aria-hidden="true" tabindex="-1"></a>    val_h <span class="op">=</span> bus.read_i2c_block_data(i2c_address, reg_temp_h, <span class="dv">1</span>)</span>
+<span id="cb11-24"><a href="#cb11-24" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb11-25"><a href="#cb11-25" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Combine high and low registers</span></span>
+<span id="cb11-26"><a href="#cb11-26" aria-hidden="true" tabindex="-1"></a>    temperature <span class="op">=</span> (val_h[<span class="dv">0</span>] <span class="op">&lt;&lt;</span> <span class="dv">8</span>) <span class="op">|</span> val_l[<span class="dv">0</span>]</span>
+<span id="cb11-27"><a href="#cb11-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-28"><a href="#cb11-28" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Convert to celcius</span></span>
+<span id="cb11-29"><a href="#cb11-29" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> temperature <span class="op">/</span> <span class="fl">100.0</span></span>
+<span id="cb11-30"><a href="#cb11-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-31"><a href="#cb11-31" aria-hidden="true" tabindex="-1"></a><span class="co"># Initialize I2C</span></span>
+<span id="cb11-32"><a href="#cb11-32" aria-hidden="true" tabindex="-1"></a>bus <span class="op">=</span> smbus.SMBus(i2c_ch)</span>
+<span id="cb11-33"><a href="#cb11-33" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-34"><a href="#cb11-34" aria-hidden="true" tabindex="-1"></a><span class="co"># Print old control register value</span></span>
+<span id="cb11-35"><a href="#cb11-35" aria-hidden="true" tabindex="-1"></a>val <span class="op">=</span> bus.read_i2c_block_data(i2c_address, reg_config, <span class="dv">1</span>)</span>
+<span id="cb11-36"><a href="#cb11-36" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">&quot;Old control register value:&quot;</span>, val)</span>
+<span id="cb11-37"><a href="#cb11-37" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-38"><a href="#cb11-38" aria-hidden="true" tabindex="-1"></a><span class="co"># Set configs</span></span>
+<span id="cb11-39"><a href="#cb11-39" aria-hidden="true" tabindex="-1"></a>val[<span class="dv">0</span>] <span class="op">=</span> ctrl_reg</span>
+<span id="cb11-40"><a href="#cb11-40" aria-hidden="true" tabindex="-1"></a>bus.write_i2c_block_data(i2c_address, reg_config, val)</span>
+<span id="cb11-41"><a href="#cb11-41" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-42"><a href="#cb11-42" aria-hidden="true" tabindex="-1"></a><span class="co"># Print new control register value</span></span>
+<span id="cb11-43"><a href="#cb11-43" aria-hidden="true" tabindex="-1"></a>val <span class="op">=</span> bus.read_i2c_block_data(i2c_address, reg_config, <span class="dv">1</span>)</span>
+<span id="cb11-44"><a href="#cb11-44" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">&quot;New control register value:&quot;</span>, val)</span>
+<span id="cb11-45"><a href="#cb11-45" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-46"><a href="#cb11-46" aria-hidden="true" tabindex="-1"></a><span class="co"># Print temperature value in a loop</span></span>
+<span id="cb11-47"><a href="#cb11-47" aria-hidden="true" tabindex="-1"></a><span class="cf">while</span> <span class="va">True</span>:</span>
+<span id="cb11-48"><a href="#cb11-48" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">&quot;Current temperature: &quot;</span> <span class="op">+</span> <span class="bu">str</span>(read_temp()), <span class="st">&quot;C&quot;</span>)</span>
+<span id="cb11-49"><a href="#cb11-49" aria-hidden="true" tabindex="-1"></a>    time.sleep(<span class="dv">1</span>)</span></code></pre></div>
+<p><strong>Running the script</strong></p>
+<figure>
+<img src="https://i.imgur.com/vSIaYn9.png" alt="Tempearture values" />
+<figcaption aria-hidden="true">Tempearture values</figcaption>
+</figure>
 <hr />
 <h3 id="gps">GPS</h3>
 <p>The Click board that I got for GPS location reading is this one: *
@@ -345,42 +385,46 @@ https://www.mikroe.com/gps-4-click</p>
 <p>It contains a <strong>Quectel L70</strong> GPS chip and it can be
 communicated with trough UART.</p>
 <p><strong>Setting up gpsd</strong></p>
-<div class="sourceCode" id="cb14"><pre
-class="sourceCode bash"><code class="sourceCode bash"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> apt-get install gpsd gpsd-clients</span></code></pre></div>
+<div class="sourceCode" id="cb12"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> apt-get install gpsd gpsd-clients</span></code></pre></div>
 <p><strong>Output GPS data to see that the chip works</strong></p>
 <p>At this point some data should already be seen in the terminal if the
 device works and correct <strong>tty</strong> port is used.</p>
-<div class="sourceCode" id="cb15"><pre
-class="sourceCode bash"><code class="sourceCode bash"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> cat /dev/ttyS0</span></code></pre></div>
+<div class="sourceCode" id="cb13"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> cat /dev/ttyS0</span></code></pre></div>
 <p><strong>Disable gpsd that uses the default settings</strong></p>
-<div class="sourceCode" id="cb16"><pre
-class="sourceCode bash"><code class="sourceCode bash"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> systemctl stop gpsd.socket</span>
-<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> systemctl disable gpsd.socket</span></code></pre></div>
+<div class="sourceCode" id="cb14"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> systemctl stop gpsd.socket</span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> systemctl disable gpsd.socket</span></code></pre></div>
 <p><strong>Set permissions and user groups for gpsd</strong></p>
-<div class="sourceCode" id="cb17"><pre
-class="sourceCode bash"><code class="sourceCode bash"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> usermod <span class="at">-a</span> <span class="at">-G</span> dialout gpsd</span>
-<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> chown root:dialout /dev/ttyS0</span></code></pre></div>
+<div class="sourceCode" id="cb15"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> usermod <span class="at">-a</span> <span class="at">-G</span> dialout gpsd</span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> chown root:dialout /dev/ttyS0</span></code></pre></div>
 <p><strong>I keep getting these errors still</strong></p>
-<pre><code>Oct 22 14:36:12 arm gpsd[1329]: gpsd:ERROR: SER: device open of /dev/ttyS0 failed: Permission denied - retrying read-only
-Oct 22 14:36:12 arm gpsd[1329]: gpsd:ERROR: SER: read-only device open of /dev/ttyS0 failed: Permission denied
-Oct 22 14:36:12 arm gpsd[1329]: gpsd:ERROR: /dev/ttyS0: device activation failed.
-Oct 22 14:36:12 arm gpsd[1329]: gpsd:ERROR: /dev/ttyS0: activation failed, freeing device</code></pre>
+<div class="sourceCode" id="cb16"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="ex">Oct</span> 22 14:36:12 arm gpsd<span class="pp">[</span><span class="ss">1329</span><span class="pp">]</span>: gpsd:ERROR: SER: device open of /dev/ttyS0 failed: Permission denied <span class="at">-</span> retrying read-only</span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="ex">Oct</span> 22 14:36:12 arm gpsd<span class="pp">[</span><span class="ss">1329</span><span class="pp">]</span>: gpsd:ERROR: SER: read-only device open of /dev/ttyS0 failed: Permission denied</span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a><span class="ex">Oct</span> 22 14:36:12 arm gpsd<span class="pp">[</span><span class="ss">1329</span><span class="pp">]</span>: gpsd:ERROR: /dev/ttyS0: device activation failed.</span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a><span class="ex">Oct</span> 22 14:36:12 arm gpsd<span class="pp">[</span><span class="ss">1329</span><span class="pp">]</span>: gpsd:ERROR: /dev/ttyS0: activation failed, freeing device</span></code></pre></div>
 <p><strong>A hacky fix to make it actually work. Fix later.</strong></p>
-<div class="sourceCode" id="cb19"><pre
-class="sourceCode bash"><code class="sourceCode bash"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> mv /dev/ttyS0 /dev/ttyS1</span>
-<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> chmod 666 /dev/ttyS1</span></code></pre></div>
+<div class="sourceCode" id="cb17"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> mv /dev/ttyS0 /dev/ttyS1</span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> chmod 666 /dev/ttyS1</span></code></pre></div>
 <p><strong>Start the daemon</strong></p>
-<div class="sourceCode" id="cb20"><pre
-class="sourceCode bash"><code class="sourceCode bash"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> rm /var/run/gpsd.sock</span>
-<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> gpsd /dev/ttyS1 <span class="at">-F</span> /var/run/gpsd.sock</span></code></pre></div>
+<div class="sourceCode" id="cb18"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> rm /var/run/gpsd.sock</span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> gpsd /dev/ttyS1 <span class="at">-F</span> /var/run/gpsd.sock</span></code></pre></div>
 <p><strong>GPS monitoring tools</strong></p>
-<div class="sourceCode" id="cb21"><pre
-class="sourceCode bash"><code class="sourceCode bash"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> gpsmon</span>
-<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> cgps <span class="at">-s</span></span></code></pre></div>
+<div class="sourceCode" id="cb19"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> gpsmon</span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> cgps <span class="at">-s</span></span></code></pre></div>
 <p><strong>gpsmon</strong></p>
 <p>I don’t have a GPS antenna, so gps can’t see any satellites ( Quality
-and Sats field ) <img src="https://i.imgur.com/6VwiqnP.png"
-alt="gpsmon output" /></p>
+and Sats field )</p>
+<figure>
+<img src="https://i.imgur.com/6VwiqnP.png" alt="gpsmon output" />
+<figcaption aria-hidden="true">gpsmon output</figcaption>
+</figure>
 <hr />
 <h3 id="wifi">Wifi</h3>
 <p>Not a Click board, but I remembered that I bought this wifi module
@@ -391,8 +435,11 @@ class="uri">https://components101.com/development-boards/nodemcu-esp8266-pinout-
 <strong>ESP8266</strong> chip which includes a <strong>Tensilica Xtensa
 32-bit LX106</strong> RISC microprocessor. NodeMCU has 128 KB RAM and
 4MB of Flash memory.</p>
-<p><strong>Connected via UART pins</strong> <img
-src="https://i.imgur.com/HkzqyG3.jpg" alt="ESP8266 connected" /></p>
+<p><strong>Connected via UART pins</strong></p>
+<figure>
+<img src="https://i.imgur.com/HkzqyG3.jpg" alt="ESP8266 connected" />
+<figcaption aria-hidden="true">ESP8266 connected</figcaption>
+</figure>
 <p><strong>Flashing the firmware</strong></p>
 <p>I found this <strong>“slip router”</strong> project from github which
 allows me to setup a Linux interface to communicate with the Wifi chip.
@@ -403,57 +450,65 @@ I could build the slip router. Later on I realized that the github repo
 has the pre built binaries already. But now that I have the SDK setup, I
 can for example change the UART baud rate and so on.</p>
 <p><strong>Setup ESP SDK</strong></p>
-<div class="sourceCode" id="cb22"><pre
-class="sourceCode bash"><code class="sourceCode bash"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> clone https://github.com/pfalcon/esp-open-sdk</span>
-<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> apt-get install make unrar-free autoconf automake libtool gcc g++ gperf <span class="dt">\</span></span>
-<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>    flex bison texinfo gawk ncurses-dev libexpat-dev python-dev python python-serial <span class="dt">\</span></span>
-<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a>    sed git unzip bash help2man wget bzip2</span>
-<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> apt-get install libtool-bin</span>
-<span id="cb22-6"><a href="#cb22-6" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> esp-open-sdk</span>
-<span id="cb22-7"><a href="#cb22-7" aria-hidden="true" tabindex="-1"></a><span class="fu">make</span></span>
-<span id="cb22-8"><a href="#cb22-8" aria-hidden="true" tabindex="-1"></a><span class="bu">export</span> <span class="va">PATH</span><span class="op">=</span><span class="st">&quot;/PATH_TO_ESP_PROJECT/esp-open-sdk/xtensa-lx106-elf/bin:</span><span class="va">$PATH</span><span class="st">&quot;</span></span></code></pre></div>
+<div class="sourceCode" id="cb20"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> clone https://github.com/pfalcon/esp-open-sdk</span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> apt-get install make unrar-free autoconf automake libtool gcc g++ gperf <span class="dt">\</span></span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>    flex bison texinfo gawk ncurses-dev libexpat-dev python-dev python python-serial <span class="dt">\</span></span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a>    sed git unzip bash help2man wget bzip2</span>
+<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> apt-get install libtool-bin</span>
+<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> esp-open-sdk</span>
+<span id="cb20-7"><a href="#cb20-7" aria-hidden="true" tabindex="-1"></a><span class="fu">make</span></span>
+<span id="cb20-8"><a href="#cb20-8" aria-hidden="true" tabindex="-1"></a><span class="bu">export</span> <span class="va">PATH</span><span class="op">=</span><span class="st">&quot;/PATH_TO_ESP_PROJECT/esp-open-sdk/xtensa-lx106-elf/bin:</span><span class="va">$PATH</span><span class="st">&quot;</span></span></code></pre></div>
 <p><strong>Build the slip router and flash the firmware</strong></p>
-<div class="sourceCode" id="cb23"><pre
-class="sourceCode bash"><code class="sourceCode bash"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> ..</span>
-<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> clone https://github.com/martin-ger/esp_slip_router</span>
-<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> esp_slip_router</span>
-<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a><span class="fu">make</span></span>
-<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a><span class="fu">make</span> flash</span></code></pre></div>
+<div class="sourceCode" id="cb21"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> ..</span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> clone https://github.com/martin-ger/esp_slip_router</span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> esp_slip_router</span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a><span class="fu">make</span></span>
+<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a><span class="fu">make</span> flash</span></code></pre></div>
 <p><strong>Setting up the wifi interface</strong></p>
-<div class="sourceCode" id="cb24"><pre
-class="sourceCode bash"><code class="sourceCode bash"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> slattach <span class="at">-L</span> <span class="at">-p</span> slip <span class="at">-s</span> 115200 /dev/ttyS0<span class="kw">&amp;</span></span>
-<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> ifconfig sl0 192.168.240.2 pointopoint 192.168.240.1 up mtu 1500</span>
-<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> route add <span class="at">-net</span> 192.168.4.0/24 gw 192.168.240.1</span>
-<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a><span class="ex">telnet</span> 192.168.240.1 7777</span>
-<span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a><span class="ex">CMD</span><span class="op">&gt;</span>set ap_ssid ESP8266 </span>
-<span id="cb24-6"><a href="#cb24-6" aria-hidden="true" tabindex="-1"></a><span class="ex">CMD</span><span class="op">&gt;</span>set ap_password temppwd</span>
-<span id="cb24-7"><a href="#cb24-7" aria-hidden="true" tabindex="-1"></a><span class="ex">CMD</span><span class="op">&gt;</span>set use_ap 1</span>
-<span id="cb24-8"><a href="#cb24-8" aria-hidden="true" tabindex="-1"></a><span class="ex">CMD</span><span class="op">&gt;</span>save</span>
-<span id="cb24-9"><a href="#cb24-9" aria-hidden="true" tabindex="-1"></a><span class="ex">CMD</span><span class="op">&gt;</span>reset</span></code></pre></div>
-<p><strong>The “slip” interface on Linux</strong> <img
-src="https://i.imgur.com/zbHfFWy.png" alt="slip interface" /></p>
+<div class="sourceCode" id="cb22"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> slattach <span class="at">-L</span> <span class="at">-p</span> slip <span class="at">-s</span> 115200 /dev/ttyS0<span class="kw">&amp;</span></span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> ifconfig sl0 192.168.240.2 pointopoint 192.168.240.1 up mtu 1500</span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> route add <span class="at">-net</span> 192.168.4.0/24 gw 192.168.240.1</span>
+<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a><span class="ex">telnet</span> 192.168.240.1 7777</span>
+<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a><span class="ex">CMD</span><span class="op">&gt;</span>set ap_ssid ESP8266 </span>
+<span id="cb22-6"><a href="#cb22-6" aria-hidden="true" tabindex="-1"></a><span class="ex">CMD</span><span class="op">&gt;</span>set ap_password temppwd</span>
+<span id="cb22-7"><a href="#cb22-7" aria-hidden="true" tabindex="-1"></a><span class="ex">CMD</span><span class="op">&gt;</span>set use_ap 1</span>
+<span id="cb22-8"><a href="#cb22-8" aria-hidden="true" tabindex="-1"></a><span class="ex">CMD</span><span class="op">&gt;</span>save</span>
+<span id="cb22-9"><a href="#cb22-9" aria-hidden="true" tabindex="-1"></a><span class="ex">CMD</span><span class="op">&gt;</span>reset</span></code></pre></div>
+<p><strong>The “slip” interface on Linux</strong></p>
+<figure>
+<img src="https://i.imgur.com/zbHfFWy.png" alt="slip interface" />
+<figcaption aria-hidden="true">slip interface</figcaption>
+</figure>
 <p><strong>Testing SSH with termux on Android, it works !</strong></p>
 <p>I enabled wifi on my phone, the ESP8266 access point showed up and I
-was able to connect to it. <img src="https://i.imgur.com/lIcAgQr.png"
-alt="Termux wifi test" /></p>
+was able to connect to it.</p>
+<figure>
+<img src="https://i.imgur.com/lIcAgQr.png" alt="Termux wifi test" />
+<figcaption aria-hidden="true">Termux wifi test</figcaption>
+</figure>
 <p><strong>I also tried to flash the firmware on the target Linux
 board</strong></p>
-<pre><code>termios.error: (25, &#39;Inappropriate ioctl for device&#39;)</code></pre>
+<div class="sourceCode" id="cb23"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="ex">termios.error:</span> <span class="er">(</span><span class="ex">25,</span> <span class="st">&#39;Inappropriate ioctl for device&#39;</span><span class="kw">)</span></span></code></pre></div>
 <p><strong>Not sure if this is even supposed to be possible, but here’s
 the command I tried</strong></p>
-<div class="sourceCode" id="cb26"><pre
-class="sourceCode bash"><code class="sourceCode bash"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> esptool.py <span class="at">--port</span> /dev/ttyS0 write_flash <span class="at">-fs</span> 4MB 0x00000 firmware/0x00000.bin 0x10000 firmware/0x10000.bin</span></code></pre></div>
+<div class="sourceCode" id="cb24"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> esptool.py <span class="at">--port</span> /dev/ttyS0 write_flash <span class="at">-fs</span> 4MB 0x00000 firmware/0x00000.bin 0x10000 firmware/0x10000.bin</span></code></pre></div>
 <p>It failed. And I’m not sure if it’s just an coincidence or did it
 break something, but now when I try to for example update the board with
 <strong>apt-get</strong>, it gives me this error 😳</p>
-<pre><code>Reading package lists... Error!
-E: lzma_read: Read error (10)
-W: You may want to run apt-get update to correct these problems
-E: The package cache file is corrupted</code></pre>
+<div class="sourceCode" id="cb25"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="ex">Reading</span> package lists... Error!</span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a><span class="ex">E:</span> lzma_read: Read error <span class="er">(</span><span class="ex">10</span><span class="kw">)</span></span>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a><span class="ex">W:</span> You may want to run apt-get update to correct these problems</span>
+<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a><span class="ex">E:</span> The package cache file is corrupted</span></code></pre></div>
 <p>Quick google search suggested that it is caused by some python serial
 module mismatch and to resolve, I should install:</p>
-<div class="sourceCode" id="cb28"><pre
-class="sourceCode bash"><code class="sourceCode bash"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> apt-get install python-serial</span></code></pre></div>
+<div class="sourceCode" id="cb26"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> apt-get install python-serial</span></code></pre></div>
 <p>This is where I noticed the <strong>lzma_read</strong> error above.
 Need to investigate more.</p>
 <hr />
@@ -467,7 +522,8 @@ class="uri">https://github.com/BoschSensortec/BMI270-Sensor-API</a></p>
 <p><strong>Initialization results in error</strong></p>
 <p>The driver is able to at least read some I2C registers before failing
 to this configuration loading check with this error:</p>
-<pre><code>Error -9 : Configuration loading error</code></pre>
+<div class="sourceCode" id="cb27"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="ex">Error</span> <span class="at">-9</span> : Configuration loading error</span></code></pre></div>
 <p>If solving this begings to take too long, I’ll probably test the
 driver with SPI bus. For that I need to modify the device tree again and
 add the SPI to it.</p>
@@ -483,46 +539,46 @@ class="uri">https://www.mikroe.com/mcp25625-click</a></p>
 <h1 id="wsl-notes">WSL Notes</h1>
 <h5 id="install-wsl-to-non-system-drive-not-c">Install WSL to Non system
 drive ( not C: )</h5>
-<div class="sourceCode" id="cb30"><pre
-class="sourceCode powershell"><code class="sourceCode powershell"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="op">-</span> Win button <span class="op">-&gt;</span> Search <span class="cf">for</span> <span class="st">&#39;powershell&#39;</span> <span class="op">-&gt;</span> Ctrl <span class="op">+</span> Shift <span class="op">+</span> Enter</span>
-<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a><span class="op">-</span> <span class="fu">cd</span> G<span class="op">:</span>\</span>
-<span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a><span class="op">-</span> mkdir WSL</span>
-<span id="cb30-4"><a href="#cb30-4" aria-hidden="true" tabindex="-1"></a><span class="op">-</span> <span class="fu">cd</span> WSL</span>
-<span id="cb30-5"><a href="#cb30-5" aria-hidden="true" tabindex="-1"></a><span class="op">-</span> See distros here<span class="op">:</span> https<span class="op">://</span>docs<span class="op">.</span><span class="fu">microsoft</span><span class="op">.</span><span class="fu">com</span><span class="op">/</span>en-us<span class="op">/</span>windows<span class="op">/</span>wsl<span class="op">/</span>install-manual</span>
-<span id="cb30-6"><a href="#cb30-6" aria-hidden="true" tabindex="-1"></a><span class="op">-</span> <span class="fu">iwr</span> <span class="op">-</span>Uri https<span class="op">://</span>aka<span class="op">.</span><span class="fu">ms</span><span class="op">/</span>wsl-ubuntu-1804 <span class="op">-</span>OutFile Ubuntu<span class="op">.</span><span class="fu">appx</span> <span class="op">-</span>UseBasicParsing</span>
-<span id="cb30-7"><a href="#cb30-7" aria-hidden="true" tabindex="-1"></a><span class="op">-</span> <span class="fu">move</span> <span class="op">.</span>\Ubuntu<span class="op">.</span><span class="fu">appx</span> <span class="op">.</span>\Ubuntu<span class="op">.</span><span class="fu">zip</span></span>
-<span id="cb30-8"><a href="#cb30-8" aria-hidden="true" tabindex="-1"></a><span class="op">-</span> Expand-Archive <span class="op">.</span>\Ubuntu<span class="op">.</span><span class="fu">zip</span></span>
-<span id="cb30-9"><a href="#cb30-9" aria-hidden="true" tabindex="-1"></a><span class="op">-</span> <span class="fu">cd</span> Ubuntu</span>
-<span id="cb30-10"><a href="#cb30-10" aria-hidden="true" tabindex="-1"></a><span class="op">-</span> <span class="op">.</span>\ubuntu1804<span class="op">.</span><span class="fu">exe</span></span>
-<span id="cb30-11"><a href="#cb30-11" aria-hidden="true" tabindex="-1"></a><span class="op">-</span> Create username and password</span></code></pre></div>
+<div class="sourceCode" id="cb28"><pre
+class="sourceCode powershell"><code class="sourceCode powershell"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="op">-</span> Win button <span class="op">-&gt;</span> Search <span class="cf">for</span> <span class="st">&#39;powershell&#39;</span> <span class="op">-&gt;</span> Ctrl <span class="op">+</span> Shift <span class="op">+</span> Enter</span>
+<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a><span class="op">-</span> <span class="fu">cd</span> G<span class="op">:</span>\</span>
+<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a><span class="op">-</span> mkdir WSL</span>
+<span id="cb28-4"><a href="#cb28-4" aria-hidden="true" tabindex="-1"></a><span class="op">-</span> <span class="fu">cd</span> WSL</span>
+<span id="cb28-5"><a href="#cb28-5" aria-hidden="true" tabindex="-1"></a><span class="op">-</span> See distros here<span class="op">:</span> https<span class="op">://</span>docs<span class="op">.</span><span class="fu">microsoft</span><span class="op">.</span><span class="fu">com</span><span class="op">/</span>en-us<span class="op">/</span>windows<span class="op">/</span>wsl<span class="op">/</span>install-manual</span>
+<span id="cb28-6"><a href="#cb28-6" aria-hidden="true" tabindex="-1"></a><span class="op">-</span> <span class="fu">iwr</span> <span class="op">-</span>Uri https<span class="op">://</span>aka<span class="op">.</span><span class="fu">ms</span><span class="op">/</span>wsl-ubuntu-1804 <span class="op">-</span>OutFile Ubuntu<span class="op">.</span><span class="fu">appx</span> <span class="op">-</span>UseBasicParsing</span>
+<span id="cb28-7"><a href="#cb28-7" aria-hidden="true" tabindex="-1"></a><span class="op">-</span> <span class="fu">move</span> <span class="op">.</span>\Ubuntu<span class="op">.</span><span class="fu">appx</span> <span class="op">.</span>\Ubuntu<span class="op">.</span><span class="fu">zip</span></span>
+<span id="cb28-8"><a href="#cb28-8" aria-hidden="true" tabindex="-1"></a><span class="op">-</span> Expand-Archive <span class="op">.</span>\Ubuntu<span class="op">.</span><span class="fu">zip</span></span>
+<span id="cb28-9"><a href="#cb28-9" aria-hidden="true" tabindex="-1"></a><span class="op">-</span> <span class="fu">cd</span> Ubuntu</span>
+<span id="cb28-10"><a href="#cb28-10" aria-hidden="true" tabindex="-1"></a><span class="op">-</span> <span class="op">.</span>\ubuntu1804<span class="op">.</span><span class="fu">exe</span></span>
+<span id="cb28-11"><a href="#cb28-11" aria-hidden="true" tabindex="-1"></a><span class="op">-</span> Create username and password</span></code></pre></div>
 <h5 id="resize-wsl-virtual-drive">Resize WSL virtual drive</h5>
-<div class="sourceCode" id="cb31"><pre
-class="sourceCode powershell"><code class="sourceCode powershell"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span><span class="op">.</span> Increase virtual disk space</span>
-<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a><span class="op">-</span> Win button <span class="op">-</span> Search <span class="cf">for</span> <span class="st">&quot;Turn Windows features on or off&quot;</span> <span class="op">-&gt;</span> Hyper-V <span class="op">-&gt;</span> Tick on</span>
-<span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a><span class="op">-</span> Win button <span class="op">-&gt;</span> Search <span class="cf">for</span> <span class="st">&#39;powershell&#39;</span> <span class="op">-&gt;</span> Ctrl <span class="op">+</span> Shift <span class="op">+</span> Enter</span>
-<span id="cb31-4"><a href="#cb31-4" aria-hidden="true" tabindex="-1"></a><span class="op">-</span> <span class="fu">cd</span> to the location of virtual drive <span class="op">(</span> ext4<span class="op">.</span><span class="fu">vhdx</span> <span class="op">)</span></span>
-<span id="cb31-5"><a href="#cb31-5" aria-hidden="true" tabindex="-1"></a><span class="op">-</span> resize-vhd <span class="op">-</span>Path <span class="op">.</span>\ext4<span class="op">.</span><span class="fu">vhdx</span> <span class="op">-</span>SizeBytes 326GB</span>
-<span id="cb31-6"><a href="#cb31-6" aria-hidden="true" tabindex="-1"></a><span class="op">-</span> Another way<span class="op">:</span> https<span class="op">://</span>docs<span class="op">.</span><span class="fu">microsoft</span><span class="op">.</span><span class="fu">com</span><span class="op">/</span>en-us<span class="op">/</span>windows<span class="op">/</span>wsl<span class="op">/</span>compare-versions<span class="co">#expanding-the-size-of-your-wsl-2-virtual-hard-disk</span></span>
-<span id="cb31-7"><a href="#cb31-7" aria-hidden="true" tabindex="-1"></a><span class="dv">2</span><span class="op">.</span> Increase physical disk space on linux</span>
-<span id="cb31-8"><a href="#cb31-8" aria-hidden="true" tabindex="-1"></a><span class="co"># This can cause error: &quot;/dev: none already mounted on /dev.&quot;. just ignore.</span></span>
-<span id="cb31-9"><a href="#cb31-9" aria-hidden="true" tabindex="-1"></a><span class="op">-</span> sudo <span class="fu">mount</span> <span class="op">-</span>t devtmpfs none <span class="op">/</span>dev</span>
-<span id="cb31-10"><a href="#cb31-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Check output e.g. /dev/sdb</span></span>
-<span id="cb31-11"><a href="#cb31-11" aria-hidden="true" tabindex="-1"></a><span class="op">-</span> <span class="fu">mount</span> <span class="op">|</span> grep ext4</span>
-<span id="cb31-12"><a href="#cb31-12" aria-hidden="true" tabindex="-1"></a><span class="co"># Give the size in megabytes</span></span>
-<span id="cb31-13"><a href="#cb31-13" aria-hidden="true" tabindex="-1"></a><span class="op">-</span> sudo resize2fs <span class="op">/</span>dev<span class="op">/</span>sdb 376000M</span></code></pre></div>
+<div class="sourceCode" id="cb29"><pre
+class="sourceCode powershell"><code class="sourceCode powershell"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span><span class="op">.</span> Increase virtual disk space</span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a><span class="op">-</span> Win button <span class="op">-</span> Search <span class="cf">for</span> <span class="st">&quot;Turn Windows features on or off&quot;</span> <span class="op">-&gt;</span> Hyper-V <span class="op">-&gt;</span> Tick on</span>
+<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a><span class="op">-</span> Win button <span class="op">-&gt;</span> Search <span class="cf">for</span> <span class="st">&#39;powershell&#39;</span> <span class="op">-&gt;</span> Ctrl <span class="op">+</span> Shift <span class="op">+</span> Enter</span>
+<span id="cb29-4"><a href="#cb29-4" aria-hidden="true" tabindex="-1"></a><span class="op">-</span> <span class="fu">cd</span> to the location of virtual drive <span class="op">(</span> ext4<span class="op">.</span><span class="fu">vhdx</span> <span class="op">)</span></span>
+<span id="cb29-5"><a href="#cb29-5" aria-hidden="true" tabindex="-1"></a><span class="op">-</span> resize-vhd <span class="op">-</span>Path <span class="op">.</span>\ext4<span class="op">.</span><span class="fu">vhdx</span> <span class="op">-</span>SizeBytes 326GB</span>
+<span id="cb29-6"><a href="#cb29-6" aria-hidden="true" tabindex="-1"></a><span class="op">-</span> Another way<span class="op">:</span> https<span class="op">://</span>docs<span class="op">.</span><span class="fu">microsoft</span><span class="op">.</span><span class="fu">com</span><span class="op">/</span>en-us<span class="op">/</span>windows<span class="op">/</span>wsl<span class="op">/</span>compare-versions<span class="co">#expanding-the-size-of-your-wsl-2-virtual-hard-disk</span></span>
+<span id="cb29-7"><a href="#cb29-7" aria-hidden="true" tabindex="-1"></a><span class="dv">2</span><span class="op">.</span> Increase physical disk space on linux</span>
+<span id="cb29-8"><a href="#cb29-8" aria-hidden="true" tabindex="-1"></a><span class="co"># This can cause error: &quot;/dev: none already mounted on /dev.&quot;. just ignore.</span></span>
+<span id="cb29-9"><a href="#cb29-9" aria-hidden="true" tabindex="-1"></a><span class="op">-</span> sudo <span class="fu">mount</span> <span class="op">-</span>t devtmpfs none <span class="op">/</span>dev</span>
+<span id="cb29-10"><a href="#cb29-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Check output e.g. /dev/sdb</span></span>
+<span id="cb29-11"><a href="#cb29-11" aria-hidden="true" tabindex="-1"></a><span class="op">-</span> <span class="fu">mount</span> <span class="op">|</span> grep ext4</span>
+<span id="cb29-12"><a href="#cb29-12" aria-hidden="true" tabindex="-1"></a><span class="co"># Give the size in megabytes</span></span>
+<span id="cb29-13"><a href="#cb29-13" aria-hidden="true" tabindex="-1"></a><span class="op">-</span> sudo resize2fs <span class="op">/</span>dev<span class="op">/</span>sdb 376000M</span></code></pre></div>
 <h5 id="wsl-root-filesystem-on-windows">WSL root filesystem on
 Windows</h5>
-<div class="sourceCode" id="cb32"><pre
-class="sourceCode powershell"><code class="sourceCode powershell"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a>\\wsl<span class="op">.</span><span class="fu">localhost</span>\Ubuntu-20<span class="op">.</span><span class="dv">04</span></span></code></pre></div>
+<div class="sourceCode" id="cb30"><pre
+class="sourceCode powershell"><code class="sourceCode powershell"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>\\wsl<span class="op">.</span><span class="fu">localhost</span>\Ubuntu-20<span class="op">.</span><span class="dv">04</span></span></code></pre></div>
 <h5 id="windows-root-on-wsl">Windows root on WSL</h5>
-<div class="sourceCode" id="cb33"><pre
-class="sourceCode bash"><code class="sourceCode bash"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="ex">/mnt/c</span></span></code></pre></div>
+<div class="sourceCode" id="cb31"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="ex">/mnt/c</span></span></code></pre></div>
 <h5 id="view-current-wsl-virtual-drive-size">View current WSL virtual
 drive size</h5>
-<div class="sourceCode" id="cb34"><pre
-class="sourceCode powershell"><code class="sourceCode powershell"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="op">-</span> Win button <span class="op">-&gt;</span> Search <span class="cf">for</span> <span class="st">&#39;powershell&#39;</span> <span class="op">-&gt;</span> Ctrl <span class="op">+</span> Shift <span class="op">+</span> Enter</span>
-<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a><span class="op">-</span> diskpart</span>
-<span id="cb34-3"><a href="#cb34-3" aria-hidden="true" tabindex="-1"></a><span class="op">-</span> <span class="fu">Select</span> vdisk file<span class="op">=</span><span class="st">&quot;G:\Ubuntu-20-04_wsl\ubuntu-1804\ext4.vhdx&quot;</span></span>
-<span id="cb34-4"><a href="#cb34-4" aria-hidden="true" tabindex="-1"></a><span class="op">-</span> detail vdisk</span></code></pre></div>
+<div class="sourceCode" id="cb32"><pre
+class="sourceCode powershell"><code class="sourceCode powershell"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="op">-</span> Win button <span class="op">-&gt;</span> Search <span class="cf">for</span> <span class="st">&#39;powershell&#39;</span> <span class="op">-&gt;</span> Ctrl <span class="op">+</span> Shift <span class="op">+</span> Enter</span>
+<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a><span class="op">-</span> diskpart</span>
+<span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a><span class="op">-</span> <span class="fu">Select</span> vdisk file<span class="op">=</span><span class="st">&quot;G:\Ubuntu-20-04_wsl\ubuntu-1804\ext4.vhdx&quot;</span></span>
+<span id="cb32-4"><a href="#cb32-4" aria-hidden="true" tabindex="-1"></a><span class="op">-</span> detail vdisk</span></code></pre></div>
 </body>
 </html>

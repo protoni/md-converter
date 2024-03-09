@@ -29,6 +29,19 @@ pip install markdown pdfkit
 
 # Convert
 python .\md_to_pdf.py
+
+# Guidelines
+- Code blocks
+  - For source code, use 3x ` + python/bash or other syntax highlighter. Otherwise
+    the code blocks gets rendered weirdly
+
+- Headlines
+  - Start markdown with #h1 tag, this way table of content gets properly separates
+    content per page.
+
+- Images
+  - Add empty line before any image tag (![img]...). Otherwise the layout gets
+    messed up.
 ```
 
 # Generate pdf
