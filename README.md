@@ -56,3 +56,22 @@ pip install reportlab
 # Generate
 python .\pdf_writer.py
 ```
+
+# Markdown writer
+```
+Prototyping a tkinter based markdown viewer/editor of sorts. Compiles into a
+single executable program under dist/ folder. Uses customtkinter library
+for more modern look.
+
+# Set dev env
+python -m venv doc_writer_env
+.\doc_writer_env\Scripts\activate
+pip install customtkinter
+
+# Run the project
+python .\doc_writer.py
+
+# Build into single executable
+pyinstaller --onefile --windowed your_script.py
+
+```
